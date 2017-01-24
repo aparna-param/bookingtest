@@ -1,0 +1,32 @@
+<html ng-app="BookingApp">
+    <head>
+        <script type="text/javascript" src="js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script src="js/lib/ui-bootstrap-tpls.js"></script>
+        <link rel="stylesheet" href="css/app.css"></link>
+        <link rel="stylesheet" href="css/bootstrap.min.css"><link>
+    </head>
+    <body ng-controller="BookingCtrl">
+        <h1> Booking App</h1><br>
+        Select Time Slot :         
+        <select ng-model="selectedSlot" ng-change="open()">
+            <option ng-repeat="record in records" class="{{record.style}}">{{record.name}}</option>
+        </select>
+        <br> 
+        
+        <script type="text/ng-template" id="myModalContent.html">    
+        <div class="modal-header">
+            <h3 class="modal-title">Book slot for user</h3>
+        </div>
+        <form name = "addUserForm">
+          <input ng-model = "user.name" class="form-control" type = "text" placeholder="Username"/>
+          <input ng-model = "user.phone" class="form-control" type = "text" placeholder="Phone"/>         
+        </form>        
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    
+    </body> 
+    </html>
